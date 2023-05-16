@@ -1,14 +1,20 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { View } from 'react-native'
+import NavStack from './NavStack'
+import { NavigationContainer } from '@react-navigation/native'
+import { StatusBar } from 'expo-status-bar'
+import { darkMode, lightMode } from '../../assets/Theme'
 
 const Navigation = () => {
+    const isDark = true
     return (
-        <View>
-            <Text>Navigation</Text>
+        <View style={{ flex: 1, backgroundColor: isDark ? '#000000' : '#ffffff' }}>
+            <NavigationContainer theme={isDark ? darkMode : lightMode}>
+                <StatusBar style={isDark ? 'dark' : 'light'} />
+
+                <NavStack />
+            </NavigationContainer>
         </View>
     )
 }
 
 export default Navigation
-
-const styles = StyleSheet.create({})

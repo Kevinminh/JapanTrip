@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import Body from '../../components/body/Body'
 
 const HomeScreen = () => {
     return (
         <View>
-            <Text>HomeScreen</Text>
+            <Body>Tasdasdasdasd</Body>
         </View>
     )
 }

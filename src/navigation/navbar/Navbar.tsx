@@ -1,11 +1,100 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { BottomTabNavigatorParamList } from '../NavigationTypes'
+import { hapticsLight } from '../../utils/Haptics'
+
+import { useTheme } from '@react-navigation/native'
+
+// SCREENS
+import HomeScreen from '../../screens/home/HomeScreen'
+import DiscoverScreen from '../../screens/discover/DiscoverScreen'
+import CurrencyScreen from '../../screens/currency/CurrencyScreen'
+
+// SVG
+import Shop from '../../assets/svg/Shop.svg'
+import HouseFilled from '../../assets/svg/HouseFilled.svg'
+import Currency from '../../assets/svg/Currency.svg'
+import Compass from '../../assets/svg/Compass.svg'
+import CompassFilled from '../../assets/svg/CompassFilled.svg'
+
+const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>()
 
 const Navbar = () => {
+    const { colors } = useTheme()
     return (
-        <View>
-            <Text>Navbar</Text>
-        </View>
+        <Tab.Navigator
+            screenOptions={{
+                headerShown: true,
+                tabBarStyle: {
+                    paddingTop: 5,
+                    backgroundColor: colors.background,
+                    borderTopWidth: 0
+                },
+                headerStyle: {
+                    backgroundColor: colors.background
+                }
+            }}
+        >
+            <Tab.Screen
+                component={HomeScreen}
+                name="HomeTab"
+                options={{
+                    tabBarLabel: 'Mat',
+                    headerShown: false,
+                    tabBarIcon: ({ focused }) =>
+                        focused ? (
+                            <Shop width={25} height={25} fill={colors.primary} />
+                        ) : (
+                            <Shop width={25} height={25} fill={colors.text} />
+                        )
+                }}
+                listeners={{
+                    tabPress: () => {
+                        hapticsLight()
+                    }
+                }}
+            />
+            <Tab.Screen
+                component={DiscoverScreen}
+                name="DiscoverTab"
+                options={{
+                    tabBarLabel: 'Utforsk',
+                    title: 'Utforsk',
+                    headerShown: true,
+                    tabBarIcon: ({ focused }) =>
+                        focused ? (
+                            <CompassFilled width={25} height={25} fill={colors.primary} />
+                        ) : (
+                            <Compass width={25} height={25} fill={colors.text} />
+                        )
+                }}
+                listeners={{
+                    tabPress: () => {
+                        hapticsLight()
+                    }
+                }}
+            />
+            <Tab.Screen
+                component={CurrencyScreen}
+                name="CurrencyTab"
+                options={{
+                    tabBarLabel: 'Valuta',
+                    title: 'Valuta',
+                    headerShown: true,
+                    tabBarIcon: ({ focused }) =>
+                        focused ? (
+                            <Currency width={25} height={25} fill={colors.primary} />
+                        ) : (
+                            <Currency width={25} height={25} fill={colors.text} />
+                        )
+                }}
+                listeners={{
+                    tabPress: () => {
+                        hapticsLight()
+                    }
+                }}
+            />
+        </Tab.Navigator>
     )
 }
 
