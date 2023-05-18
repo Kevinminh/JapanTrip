@@ -12,13 +12,14 @@ type DiscoverCardProps = {
         city: string
         image: string
     }
+    onPress: () => void
 }
 
 const DiscoverCard = ({ ...props }: DiscoverCardProps) => {
     const { colors } = useTheme()
 
     return (
-        <TouchableOpacity activeOpacity={0.3}>
+        <TouchableOpacity activeOpacity={0.3} onPress={props.onPress}>
             <View>
                 <Image source={{ uri: props.item.image }} style={[styles.image]} />
                 <Body style={[theme.textVariants.t15Bold, styles.locationText, { color: colors.white }]}>

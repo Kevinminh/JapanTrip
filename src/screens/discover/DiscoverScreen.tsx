@@ -1,14 +1,22 @@
 import { ScrollView, StyleSheet, View } from 'react-native'
 import Body from '../../components/body/Body'
-import { useTheme } from '@react-navigation/native'
+import { useTheme, useNavigation } from '@react-navigation/native'
 
 import { DiscoverData } from '../../assets/data/DiscoverData'
 import { styling, theme } from '../../assets/Theme'
 
 // COMP
 import DiscoverCard from '../../components/discoverCard/DiscoverCard'
+import { RootStackParamList } from '../../navigation/NavigationTypes'
+import { ScreenNames } from '../../navigation/stack/ScreenNames'
 
 const DiscoverScreen = () => {
+    const navigation = useNavigation<RootStackParamList>()
+
+    function navigate(data: object) {
+        navigation.navigate(ScreenNames.DiscoverInfoScreen, { data: data })
+    }
+
     const { colors } = useTheme()
 
     const kyotoData = DiscoverData.filter(item => item.city === 'KYOTO')
@@ -31,7 +39,7 @@ const DiscoverScreen = () => {
                     contentContainerStyle={[styling.gap15]}
                 >
                     {kyotoData.map((item, index) => (
-                        <DiscoverCard key={index} item={item} />
+                        <DiscoverCard key={index} item={item} onPress={() => navigate(item)} />
                     ))}
                 </ScrollView>
 
@@ -48,7 +56,7 @@ const DiscoverScreen = () => {
                     contentContainerStyle={[styling.gap15]}
                 >
                     {osakaDta.map((item, index) => (
-                        <DiscoverCard key={index} item={item} />
+                        <DiscoverCard key={index} item={item} onPress={() => navigate(item)} />
                     ))}
                 </ScrollView>
 
@@ -65,7 +73,7 @@ const DiscoverScreen = () => {
                     contentContainerStyle={[styling.gap15]}
                 >
                     {tokyoData.map((item, index) => (
-                        <DiscoverCard key={index} item={item} />
+                        <DiscoverCard key={index} item={item} onPress={() => navigate(item)} />
                     ))}
                 </ScrollView>
             </ScrollView>

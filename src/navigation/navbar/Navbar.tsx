@@ -40,7 +40,8 @@ const Navbar = () => {
                 name="HomeTab"
                 options={{
                     tabBarLabel: 'Mat',
-                    headerShown: false,
+                    title: 'Mat',
+                    headerShown: true,
                     tabBarIcon: ({ focused }) =>
                         focused ? (
                             <Shop width={25} height={25} fill={colors.primary} />

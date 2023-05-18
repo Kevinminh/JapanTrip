@@ -1,15 +1,20 @@
 import { StyleSheet, TouchableOpacity } from 'react-native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
+// SCREENS
 import HomeScreen from '../../screens/home/HomeScreen'
 import DiscoverScreen from '../../screens/discover/DiscoverScreen'
+import DiscoverInfoScreen from '../../screens/discoverInfo/DiscoverInfoScreen'
+
 import Navbar from '../navbar/Navbar'
 
 import { useNavigation, useTheme } from '@react-navigation/native'
 import { RootStackParamList } from '../NavigationTypes'
 
-import ChevronLeft from '../../assets/svg/ChevronLeft.svg'
 import { ScreenNames } from './ScreenNames'
+
+// SVG
+import ChevronLeft from '../../assets/svg/ChevronLeft.svg'
 
 const Nav = createNativeStackNavigator()
 
@@ -37,8 +42,9 @@ const NavStack = () => {
             initialRouteName="Navbar"
         >
             <Nav.Screen name="Navbar" component={Navbar} options={{ headerShown: false }} />
-            <Nav.Screen name={ScreenNames.HomeSreen} component={HomeScreen} options={{ headerShown: false }} />
+            <Nav.Screen name={ScreenNames.HomeSreen} component={HomeScreen} />
             <Nav.Screen name={ScreenNames.DiscoverScreen} component={DiscoverScreen} />
+            <Nav.Screen name={ScreenNames.DiscoverInfoScreen} component={DiscoverInfoScreen} />
         </Nav.Navigator>
     )
 }

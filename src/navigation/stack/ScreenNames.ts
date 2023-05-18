@@ -1,4 +1,5 @@
 export const ScreenNames = {
     HomeSreen: 'Hjem',
-    DiscoverScreen: 'Utforsk'
+    DiscoverScreen: 'Utforsk',
+    DiscoverInfoScreen: 'Utforsk informasjon'
 }
