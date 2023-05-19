@@ -17,6 +17,9 @@ type ParamList = {
             info: string
             openingHours: string
             link: string
+            image1?: string
+            image2?: string
+            image3?: string
         }
     }
 }
@@ -31,7 +34,7 @@ const DiscoverInfoScreen = () => {
 
     return (
         <View style={[styling.flex1, styling.ph20]}>
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 <Image style={[styles.image]} source={{ uri: data.image }} />
 
                 <Body style={[theme.textVariants.t23Bold, styling.mt10, styling.textCenter]}>{data.city}</Body>
@@ -50,6 +53,12 @@ const DiscoverInfoScreen = () => {
                     <TouchableOpacity activeOpacity={0.3}>
                         <Body>🌐 {data.link}</Body>
                     </TouchableOpacity>
+                </View>
+
+                <View style={[styles.imageContainer]}>
+                    {data.image1 && <Image style={[styles.singleImage]} source={{ uri: data.image1 }} />}
+                    {data.image2 && <Image style={[styles.singleImage]} source={{ uri: data.image2 }} />}
+                    {data.image3 && <Image style={[styles.singleImage]} source={{ uri: data.image3 }} />}
                 </View>
             </ScrollView>
         </View>
@@ -70,5 +79,18 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: theme.radius.default,
         gap: 10
+    },
+
+    singleImage: {
+        height: 175,
+        width: '100%',
+        borderRadius: theme.radius.default
+    },
+
+    imageContainer: {
+        flexWrap: 'wrap',
+        flex: 1,
+        gap: 10,
+        paddingBottom: 25
     }
 })
