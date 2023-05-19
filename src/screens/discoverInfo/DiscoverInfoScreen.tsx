@@ -53,19 +53,26 @@ const DiscoverInfoScreen = () => {
                     </TouchableOpacity>
                 </View>
 
-                <ScrollView
-                    horizontal
-                    contentContainerStyle={{ flex: 1, gap: 10, marginHorizontal: 10, marginVertical: 15 }}
-                    showsHorizontalScrollIndicator={false}
-                    pagingEnabled
-                >
-                    {data.galleryImages &&
-                        data.galleryImages.map((item, index) => (
-                            <TouchableOpacity activeOpacity={0.3} style={[styles.singleImage]} key={index}>
-                                <Image style={[styles.singleImage]} source={{ uri: item }} />
-                            </TouchableOpacity>
-                        ))}
-                </ScrollView>
+                <View style={{ flex: 1 }}>
+                    <ScrollView
+                        horizontal
+                        contentContainerStyle={{
+                            gap: 10,
+                            marginHorizontal: 10,
+                            marginVertical: 15,
+                            paddingBottom: 25
+                        }}
+                        showsHorizontalScrollIndicator={false}
+                        pagingEnabled
+                    >
+                        {data.galleryImages &&
+                            data.galleryImages.map((item, index) => (
+                                <TouchableOpacity activeOpacity={0.3} key={index}>
+                                    <Image style={[styles.singleImage]} source={{ uri: item }} />
+                                </TouchableOpacity>
+                            ))}
+                    </ScrollView>
+                </View>
             </ScrollView>
         </View>
     )
