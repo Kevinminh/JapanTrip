@@ -80,7 +80,7 @@ const Navbar = () => {
                 name="CurrencyTab"
                 options={{
                     tabBarLabel: 'Valuta',
-                    title: 'Valuta',
+                    title: 'Valutakalkulator',
                     headerShown: true,
                     tabBarIcon: ({ focused }) =>
                         focused ? (

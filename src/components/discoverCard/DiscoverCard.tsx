@@ -26,7 +26,7 @@ const DiscoverCard = ({ ...props }: DiscoverCardProps) => {
                     {props.item.location}
                 </Body>
 
-                <TouchableOpacity activeOpacity={0.3} style={[styles.btn]}>
+                <TouchableOpacity activeOpacity={0.3} style={[styles.btn]} onPress={props.onPress}>
                     <ChevronRight width={17.5} height={17.5} fill={colors.primary} />
                 </TouchableOpacity>
             </View>
