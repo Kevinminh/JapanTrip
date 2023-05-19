@@ -39,9 +39,6 @@ export const FoodData = [
     },
 
     {
-        category: 'Ramen 🍜'
-    },
-    {
         category: 'Curry 🍛'
     },
     {
