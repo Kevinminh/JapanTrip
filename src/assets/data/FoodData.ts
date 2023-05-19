@@ -9,7 +9,6 @@ export const FoodData = [
         name: 'Sushi Miyui',
         priceRange: 1
     },
-
     {
         location: '〒106-0032 Tokyo, Minato City, Roppongi, 6 Chome−12−2, 3F',
         city: 'Tokyo',

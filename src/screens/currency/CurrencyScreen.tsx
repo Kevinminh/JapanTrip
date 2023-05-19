@@ -44,8 +44,8 @@ const CurrencyScreen = () => {
 
     return (
         <View style={[styling.flex1]}>
-            <ScrollView>
-                <Body style={[theme.textVariants.t17SemiBold, styling.mb20]}>Valutakalkulator</Body>
+            <ScrollView contentContainerStyle={{ justifyContent: 'center', flex: 1 }}>
+                {/* <Body style={[theme.textVariants.t17SemiBold, styling.mb20]}>Valutakalkulator</Body> */}
 
                 <View style={[styles.container, { backgroundColor: colors.card }]}>
                     <View style={[styling.flexCenter, styling.spaceBetween]}>
@@ -100,7 +100,7 @@ const CurrencyScreen = () => {
                 </Body>
 
                 <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
-                    <Button text="Vis detalje" />
+                    <Button text="Vis detaljer" />
                 </View>
             </ScrollView>
         </View>
@@ -117,9 +117,10 @@ const styles = StyleSheet.create({
     },
 
     container: {
-        padding: 20,
+        padding: 25,
         marginHorizontal: 20,
-        gap: 35
+        gap: 35,
+        borderRadius: theme.radius.default
     },
 
     divider: {
