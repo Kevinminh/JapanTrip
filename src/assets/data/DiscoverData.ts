@@ -20,8 +20,12 @@ export const DiscoverData = [
         location: 'Universial Studios',
         city: 'OSAKA',
         image: 'https://res.cloudinary.com/dowiygzq3/image/upload/v1684252455/super-nintendo-world_pkznpc.jpg',
-        image1: 'https://res.cloudinary.com/dowiygzq3/image/upload/v1684531001/hogsmeade-universal-studios-japan_dovds9.jpg',
-        image2: 'https://res.cloudinary.com/dowiygzq3/image/upload/v1684530948/Screenshot_2023-05-19_at_23-15-32_%E3%83%A6%E3%83%8B%E3%83%8F%E3%82%99%E3%83%BC%E3%82%B5%E3%83%AB_%E3%82%B9%E3%82%BF%E3%82%B7%E3%82%99%E3%82%AA_%E3%82%B7%E3%82%99%E3%83%A3%E3%83%8F%E3%82%9A%E3%83%B3_USJ_tpwvvl.png',
+        galleryImages: [
+            'https://res.cloudinary.com/dowiygzq3/image/upload/v1684531001/hogsmeade-universal-studios-japan_dovds9.jpg',
+            'https://res.cloudinary.com/dowiygzq3/image/upload/v1684530948/Screenshot_2023-05-19_at_23-15-32_%E3%83%A6%E3%83%8B%E3%83%8F%E3%82%99%E3%83%BC%E3%82%B5%E3%83%AB_%E3%82%B9%E3%82%BF%E3%82%B7%E3%82%99%E3%82%AA_%E3%82%B7%E3%82%99%E3%83%A3%E3%83%8F%E3%82%9A%E3%83%B3_USJ_tpwvvl.png',
+            'https://res.cloudinary.com/dowiygzq3/image/upload/v1684530948/Screenshot_2023-05-19_at_23-15-32_%E3%83%A6%E3%83%8B%E3%83%8F%E3%82%99%E3%83%BC%E3%82%B5%E3%83%AB_%E3%82%B9%E3%82%BF%E3%82%B7%E3%82%99%E3%82%AA_%E3%82%B7%E3%82%99%E3%83%A3%E3%83%8F%E3%82%9A%E3%83%B3_USJ_tpwvvl.png'
+        ],
+
         link: 'https://www.usj.co.jp/web/ja/jp',
         address: '2 Chome-1-33 Sakurajima, Konohana Ward, Osaka, 554-0031 (10 min fra Osaka Stasjon)',
         openingHours: '08:30/09:00 - 19:30/22:00 (avhengig av sesong)',
