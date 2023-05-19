@@ -34,6 +34,8 @@ const HomeScreen = () => {
 
     // SELECTED
     const selectedFoodCategory = FoodData.filter(item => item.category === selectedFood)
+    const selectedDrinkCategory = DrinkData.filter(item => item.category === selectedDrink)
+    const selectedDessertCategory = DessertData.filter(item => item.category === selectedDrink)
 
     return (
         <View style={[styling.flex1]}>
@@ -93,7 +95,22 @@ const HomeScreen = () => {
                     contentContainerStyle={[styling.gap15]}
                 >
                     {uniqueDrinkCategories.map((item, index) => (
-                        <TabButton key={index} text={item} isActive={item === selectedDrink} />
+                        <TabButton
+                            key={index}
+                            text={item}
+                            isActive={item === selectedDrink}
+                            onPress={() => setSelectedDrink(item)}
+                        />
+                    ))}
+                </ScrollView>
+                <ScrollView
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    style={[styling.mt10, { paddingLeft: 10 }]}
+                    contentContainerStyle={[styling.gap15]}
+                >
+                    {selectedDrinkCategory.map((item, index) => (
+                        <FoodCard item={item} onPress={() => navigate(item)} key={index} />
                     ))}
                 </ScrollView>
 
@@ -108,7 +125,22 @@ const HomeScreen = () => {
                     contentContainerStyle={[styling.gap15]}
                 >
                     {uniqueDessertCategories.map((item, index) => (
-                        <TabButton key={index} text={item} isActive={item === selectedDessert} />
+                        <TabButton
+                            key={index}
+                            text={item}
+                            isActive={item === selectedDessert}
+                            onPress={() => setSelectedDessert(item)}
+                        />
+                    ))}
+                </ScrollView>
+                <ScrollView
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    style={[styling.mt10, { paddingLeft: 10 }]}
+                    contentContainerStyle={[styling.gap15]}
+                >
+                    {selectedDessertCategory.map((item, index) => (
+                        <FoodCard item={item} onPress={() => navigate(item)} key={index} />
                     ))}
                 </ScrollView>
             </ScrollView>

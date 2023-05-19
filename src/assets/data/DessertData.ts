@@ -1,29 +1,47 @@
 export const DessertData = [
     {
-        category: 'Mochi 🍡'
+        category: 'Mochi 🍡',
+        name: '',
+        location: ''
     },
     {
-        category: 'Taiyaki 🧇'
+        category: 'Taiyaki 🧇',
+        name: '',
+        location: ''
     },
     {
-        category: 'Japansk ostekake 🧀'
+        category: 'Japansk ostekake 🧀',
+        name: '',
+        location: ''
     },
     {
-        category: 'Dorayaki 🥧'
+        category: 'Dorayaki 🥧',
+        name: '',
+        location: ''
     },
     {
-        category: 'Anmitsu'
+        category: 'Anmitsu',
+        name: '',
+        location: ''
     },
     {
-        category: 'Castella'
+        category: 'Castella',
+        name: '',
+        location: ''
     },
     {
-        category: 'Daifuku'
+        category: 'Daifuku',
+        name: '',
+        location: ''
     },
     {
-        category: 'Dango 🍡'
+        category: 'Dango 🍡',
+        name: '',
+        location: ''
     },
     {
-        category: 'Kakigöri'
+        category: 'Kakigöri',
+        name: '',
+        location: ''
     }
 ]

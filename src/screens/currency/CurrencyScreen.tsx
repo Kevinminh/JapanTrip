@@ -11,6 +11,7 @@ const CurrencyScreen = () => {
     const { colors } = useTheme()
 
     const [rate, setRate] = useState(null)
+    const [res, setRes] = useState(null)
 
     useEffect(() => {
         setCurrency(prev => ({ ...prev, nok: 100 * rate }))
@@ -24,6 +25,9 @@ const CurrencyScreen = () => {
             var response = request.response
 
             setRate(response.result.toFixed(4))
+
+            setRes(response)
+            console.log(response)
         }
     }, [])
 
@@ -32,12 +36,11 @@ const CurrencyScreen = () => {
         nok: 0
     })
 
-    if (rate === null) return <Loader />
+    if (rate === null || res === null) return <Loader />
 
     const test = rate * 1000
 
     console.log('RATE: ', rate)
-    console.log(currency.nok)
 
     return (
         <View style={[styling.flex1]}>
@@ -93,10 +96,11 @@ const CurrencyScreen = () => {
                 >
                     Dagens kurs:
                     <Body style={{ color: colors.green }}> {rate} </Body>
+                    Sist oppdatert: {res.date}
                 </Body>
 
                 <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
-                    <Button text="Vis detaljer" />
+                    <Button text="Vis detalje" />
                 </View>
             </ScrollView>
         </View>

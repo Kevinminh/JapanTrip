@@ -10,7 +10,6 @@ import Dollar from '../../assets/svg/Dollar.svg'
 type FoodCardProps = {
     item: {
         location: string
-        city: string
         image: string
         name: string
         priceRange: number

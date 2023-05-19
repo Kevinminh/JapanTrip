@@ -2,7 +2,11 @@ export const DiscoverData = [
     {
         location: 'Fushimi-inari-Taisha',
         city: 'KYOTO',
-        image: 'https://res.cloudinary.com/dowiygzq3/image/upload/v1684251444/af5ebfff16034a_inari-unsplash-6_lydxfi.jpg'
+        image: 'https://res.cloudinary.com/dowiygzq3/image/upload/v1684251444/af5ebfff16034a_inari-unsplash-6_lydxfi.jpg',
+        address: '68 Fukakusa Yabunouchichō, Fushimi Ward, Kyoto, 612-0882, Japan (5min å gå fra Inari Station)',
+        openingHours: 'Morgen til kveld (fant ikke noe spesifikt)',
+        info: 'Viktigste templet i Kyoto',
+        link: 'http://inari.jp/'
     },
     {
         location: 'Bambo forrest',

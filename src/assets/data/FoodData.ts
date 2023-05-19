@@ -39,22 +39,34 @@ export const FoodData = [
     },
 
     {
-        category: 'Curry 🍛'
+        category: 'Curry 🍛',
+        name: '',
+        location: ''
     },
     {
-        category: 'Wagyu 🥩'
+        category: 'Wagyu 🥩',
+        name: '',
+        location: ''
     },
     {
-        category: 'Tempura 🍤'
+        category: 'Tempura 🍤',
+        name: '',
+        location: ''
     },
     {
-        category: 'Takoyaki 🐙'
+        category: 'Takoyaki 🐙',
+        name: '',
+        location: ''
     },
     {
-        category: 'Okonomiyaki 🍳'
+        category: 'Okonomiyaki 🍳',
+        name: '',
+        location: ''
     },
     {
-        category: 'Miso suppe 🥣'
+        category: 'Miso suppe 🥣',
+        name: '',
+        location: ''
     },
     {
         location: 'Everywhere',

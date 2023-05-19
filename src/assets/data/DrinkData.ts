@@ -1,12 +1,18 @@
 export const DrinkData = [
     {
-        category: 'Bubble Tea 🧋'
+        category: 'Bubble Tea 🧋',
+        name: '',
+        location: ''
     },
     {
-        category: 'Kaffe ☕'
+        category: 'Kaffe ☕',
+        name: '',
+        location: ''
     },
 
     {
-        category: 'Bar 🍺'
+        category: 'Bar 🍺',
+        name: '',
+        location: ''
     }
 ]
