@@ -56,9 +56,21 @@ const DiscoverInfoScreen = () => {
                 </View>
 
                 <View style={[styles.imageContainer]}>
-                    {data.image1 && <Image style={[styles.singleImage]} source={{ uri: data.image1 }} />}
-                    {data.image2 && <Image style={[styles.singleImage]} source={{ uri: data.image2 }} />}
-                    {data.image3 && <Image style={[styles.singleImage]} source={{ uri: data.image3 }} />}
+                    {data.image1 && (
+                        <TouchableOpacity activeOpacity={0.3} style={[styles.singleImage]}>
+                            <Image style={[styles.singleImage]} source={{ uri: data.image1 }} />
+                        </TouchableOpacity>
+                    )}
+                    {data.image2 && (
+                        <TouchableOpacity activeOpacity={0.3} style={[styles.singleImage]}>
+                            <Image style={[styles.singleImage]} source={{ uri: data.image2 }} />
+                        </TouchableOpacity>
+                    )}
+                    {data.image3 && (
+                        <TouchableOpacity activeOpacity={0.3} style={[styles.singleImage]}>
+                            <Image style={[styles.singleImage]} source={{ uri: data.image3 }} />
+                        </TouchableOpacity>
+                    )}
                 </View>
             </ScrollView>
         </View>
