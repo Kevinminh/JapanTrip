@@ -6,7 +6,13 @@ export const DiscoverData = [
         address: '68 Fukakusa Yabunouchichō, Fushimi Ward, Kyoto, 612-0882 (5min å gå fra Inari Station)',
         openingHours: 'Morgen til kveld (fant ikke noe spesifikt)',
         info: 'Viktigste templet i Kyoto',
-        link: 'http://inari.jp/'
+        link: 'http://inari.jp/',
+        galleryImages: [
+            'https://res.cloudinary.com/dowiygzq3/image/upload/v1684585729/3496053483_df80fcbd47_b_bkrbbd.jpg',
+            'https://res.cloudinary.com/dowiygzq3/image/upload/v1684585729/6_wv9tqt.jpg',
+            'https://res.cloudinary.com/dowiygzq3/image/upload/v1684585730/christian-dancke-tuen-bnGYE40VuUw-unsplash-scaled_yfaeic.jpg',
+            'https://res.cloudinary.com/dowiygzq3/image/upload/v1684585729/5177891_m_y0ltyp.jpg'
+        ]
     },
     {
         location: 'Bambo forrest',
@@ -14,7 +20,12 @@ export const DiscoverData = [
         image: 'https://res.cloudinary.com/dowiygzq3/image/upload/v1684252168/1000_F_97156437_9OSIHyhnZhbrFrQHjQ8PZQNglJMRuwwt_qu45us.jpg',
         address: 'Sagatenryuji Susukinobabacho, Ukyo Ward, Kyoto, 616-8385',
         openingHours: '24/7',
-        info: 'Kan være mygg her, kanskje ta med myggspray?'
+        info: 'Kan være mygg her, kanskje ta med myggspray?',
+        galleryImages: [
+            'https://res.cloudinary.com/dowiygzq3/image/upload/v1684585856/1674810629732_hmje0b.jpg',
+            'https://res.cloudinary.com/dowiygzq3/image/upload/v1684585856/images_nuetkl.jpg',
+            'https://res.cloudinary.com/dowiygzq3/image/upload/v1684585856/e6e27503937855900b_4070581709_1204f25e3b_b_ckxlzf.jpg'
+        ]
     },
     {
         location: 'Universial Studios',
@@ -59,7 +70,12 @@ export const DiscoverData = [
         address: '〒612-8459 Kyoto, Fushimi Ward, Nakajimatobarikyucho, ７',
         openingHours: '09:00 - 16:30',
         info: 'they have the best plum blossoms in Kyoto',
-        link: 'http://www.jonangu.com/'
+        link: 'http://www.jonangu.com/',
+        galleryImages: [
+            'https://res.cloudinary.com/dowiygzq3/image/upload/v1684585969/190301_Kyoto-Jonangu-Plum_Blossom-850981_weybkc.jpg',
+            'https://res.cloudinary.com/dowiygzq3/image/upload/v1684585969/10-20150429_jonangu_kyokusuinoutage-136_qb4mue.jpg',
+            'https://res.cloudinary.com/dowiygzq3/image/upload/v1684585969/01-20140319_Jonangu_Plumblossom-192_jxn4og.jpg'
+        ]
     },
     {
         location: 'Amanohashidate',
@@ -68,7 +84,12 @@ export const DiscoverData = [
         link: 'https://www.amanohashidate.jp/',
         info: 'Translates to `Bridge in heaven`, is in Northen Kyoto',
         openingHours: '24/7',
-        address: 'Monju, Miyazu, Kyoto 626-0001, Japan'
+        address: 'Monju, Miyazu, Kyoto 626-0001, Japan',
+        galleryImages: [
+            'https://res.cloudinary.com/dowiygzq3/image/upload/v1684586052/header-5120x_alh9sc.jpg',
+            'https://res.cloudinary.com/dowiygzq3/image/upload/v1684586051/ed00654244575aeea5af713241b1f057-1024x724_ug9dn4.webp',
+            'https://res.cloudinary.com/dowiygzq3/image/upload/v1684586051/Sea_Amanohashidate-03-1_qlfqpi.webp'
+        ]
     },
     {
         location: 'Teamlabs planet',
