@@ -35,9 +35,9 @@ const DiscoverInfoScreen = () => {
             <ScrollView showsVerticalScrollIndicator={false}>
                 <Image style={[styles.image]} source={{ uri: data.image }} />
 
-                <Body style={[theme.textVariants.t23Bold, styling.mt10, styling.textCenter]}>{data.city}</Body>
+                <Body style={[theme.textVariants.t23Bold, styling.mt10, styling.textCenter]}>{data.location}</Body>
                 <Body style={[theme.textVariants.t13Regular, styling.textCenter, { color: colors.secondaryText }]}>
-                    {data.location}
+                    {data.city}
                 </Body>
 
                 <View style={[styles.infoContainer, styling.mv10, styling.mh20, { backgroundColor: colors.card }]}>
