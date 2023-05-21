@@ -95,9 +95,9 @@ const styles = StyleSheet.create({
     },
 
     singleImage: {
-        height: 350,
+        height: 200,
         // width: '100%',
-        width: 200,
+        width: 325,
         borderRadius: theme.radius.default
     },
 
