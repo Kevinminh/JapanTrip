@@ -63,26 +63,29 @@ const CurrencyScreen = () => {
                             }}
                             style={[styles.flag]}
                         />
-                        <TextInput
-                            placeholder="100 YEN"
-                            placeholderTextColor={colors.secondaryText}
-                            style={[styles.formInput]}
-                            value={selectedRate === 'NOK' ? currency.jpy.toString() : currency.nok.toString()}
-                            onChangeText={text =>
-                                selectedRate === 'NOK'
-                                    ? setCurrency(prev => ({
-                                          ...prev,
-                                          nok: (parseFloat(text) * rate).toFixed(2),
-                                          jpy: text
-                                      }))
-                                    : setCurrency(prev => ({
-                                          ...prev,
-                                          nok: text,
-                                          jpy: (parseFloat(text) / rate).toFixed(2)
-                                      }))
-                            }
-                            keyboardType="number-pad"
-                        />
+                        <View style={[styling.flexCenter, styling.gap10]}>
+                            <TextInput
+                                placeholder="100"
+                                placeholderTextColor={colors.secondaryText}
+                                style={[styles.formInput]}
+                                value={selectedRate === 'NOK' ? currency.jpy.toString() : currency.nok.toString()}
+                                onChangeText={text =>
+                                    selectedRate === 'NOK'
+                                        ? setCurrency(prev => ({
+                                              ...prev,
+                                              nok: (parseFloat(text) * rate).toFixed(2),
+                                              jpy: text
+                                          }))
+                                        : setCurrency(prev => ({
+                                              ...prev,
+                                              nok: text,
+                                              jpy: (parseFloat(text) / rate).toFixed(2)
+                                          }))
+                                }
+                                keyboardType="number-pad"
+                            />
+                            <Body>{selectedRate === 'NOK' ? 'JPY' : 'NOK'}</Body>
+                        </View>
                     </View>
 
                     <View style={[styles.divider, { borderTopColor: colors.border }]}>
@@ -102,21 +105,26 @@ const CurrencyScreen = () => {
                             }}
                             style={[styles.flag]}
                         />
-                        <TextInput
-                            placeholder={`${test} NOK`}
-                            placeholderTextColor={colors.secondaryText}
-                            style={[styles.formInput, { color: colors.secondaryText }]}
-                            value={
-                                selectedRate === 'NOK'
-                                    ? currency.nok.toString() === 'NaN'
-                                        ? 'NOK'
-                                        : currency.nok.toString()
-                                    : currency.jpy.toString() === 'NaN'
-                                    ? 'JPY'
-                                    : currency.jpy.toString()
-                            }
-                            editable={false}
-                        />
+                        <View style={[styling.flexCenter, styling.gap10]}>
+                            <TextInput
+                                placeholder={`${test}`}
+                                placeholderTextColor={colors.secondaryText}
+                                style={[styles.formInput, { color: colors.secondaryText }]}
+                                value={
+                                    selectedRate === 'NOK'
+                                        ? currency.nok.toString() === 'NaN'
+                                            ? 'NOK'
+                                            : currency.nok.toString()
+                                        : currency.jpy.toString() === 'NaN'
+                                        ? 'JPY'
+                                        : currency.jpy.toString()
+                                }
+                                editable={false}
+                            />
+                            <Body style={{ color: colors.secondaryText }}>
+                                {selectedRate === 'NOK' ? 'NOK' : 'JPY'}
+                            </Body>
+                        </View>
                     </View>
                 </View>
 

@@ -11,7 +11,7 @@ type FoodCardProps = {
     item: {
         location: string
         image: string
-        name: string
+        address: string
         priceRange: number
     }
     onPress: () => void
@@ -25,10 +25,10 @@ const FoodCard = ({ ...props }: FoodCardProps) => {
             <View>
                 <Image source={{ uri: props.item.image }} style={[styles.image]} />
                 <Body style={[theme.textVariants.t15Bold, styles.nameText, { color: colors.white }]}>
-                    {props.item.name.length > 19 ? props.item.name.slice(0, 19) + '...' : props.item.name}
+                    {props.item.location.length > 19 ? props.item.location.slice(0, 19) + '...' : props.item.location}
                 </Body>
                 <Body style={[theme.textVariants.bodySecondary, styles.locationText]}>
-                    {props.item.location.length > 25 ? props.item.location.slice(0, 25) + '...' : props.item.location}
+                    {props.item.address.length > 25 ? props.item.address.slice(0, 25) + '...' : props.item.address}
                 </Body>
 
                 {props.item.priceRange === 1 && (
