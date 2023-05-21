@@ -108,9 +108,28 @@ export const DrinkData = [
       "https://res.cloudinary.com/deiaf96eq/image/upload/v1684701684/IMG_8865-1920x1440_ayixji.jpg",
     ],
     priceRange: 2,
-    info: "Just 8min walk from Harajuku Station.",
+    info: "A Korean style café in Harajuku. Just 8min walk from Harajuku Station.",
     openingHours: "12:00 - 18:00",
     link: "https://www.muunseoul.com/",
+  },
+
+  {
+    location: "Starbucks Coffee",
+    address:
+      "349 Masuyacho Kodaiji Minamimondori Shimokawara Higashi Iru, Higashiyama-ku, Kyoto 605-0826 Kyoto Prefecture",
+    city: "Kyoto",
+    category: "Kaffe ☕️",
+    image:
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1684707175/27-29667_o81p0x.webp",
+    galleryImages: [
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1684707299/starbucks-kyoto-interior-cr-courtesy.jpg_sfrmhp.webp",
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1684707300/595bb8267ba136142f57c5aa_k0ud2k.webp",
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1684707304/Tatami-Starbucks-Kyoto-ONLINE-1_b5cwfn.jpg",
+    ],
+    priceRange: 2,
+    info: "'Set in an original wooden machiya (townhouse) from the Taisho period (1912 - 1926), the coffee house blends in perfectly with the neighbourhood´s historic vibe'",
+    openingHours: "08:00 - 20:00",
+    link: "https://store.starbucks.co.jp/detail-1476/?utm_source=GMB&utm_medium=organic&utm_campaign=store&utm_content=1476",
   },
 
   {

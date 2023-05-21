@@ -29,7 +29,7 @@ export const FoodData = [
     image:
       "https://res.cloudinary.com/dowiygzq3/image/upload/v1684447859/BestSushi-Harutaka_zg3zp3.jpg",
     priceRange: 3,
-    info: "Harutaka (青空), located in Tokyo’s exclusive Ginza district, is a premier sushi restaurant run by chef Harutaka Takahashi, a master in the craft of high-quality sushi. After all, his training took place at the aforementioned Sukibayashi Jiro, so it surprises no one that the skills displayed at his own restaurant have resulted in two Michelin stars for Harutaka. Experiencing the complexity of taste and texture of the most authentic sushi, Chef Takahashi elevates sushi to an art form. Diners at the counter are surrounded by a minimalist yet warm ambiance and have the unique experience of watching the chef prepare each piece in front of them.",
+    info: "Harutaka (青空), located in Tokyo's exclusive Ginza district, is a premier sushi restaurant run by chef Harutaka Takahashi, a master in the craft of high-quality sushi. After all, his training took place at the aforementioned Sukibayashi Jiro, so it surprises no one that the skills displayed at his own restaurant have resulted in two Michelin stars for Harutaka. Experiencing the complexity of taste and texture of the most authentic sushi, Chef Takahashi elevates sushi to an art form. Diners at the counter are surrounded by a minimalist yet warm ambiance and have the unique experience of watching the chef prepare each piece in front of them.",
   },
   {
     location: "Uogashi Nihon-ichi Shibuya Dogenzaka",
@@ -39,7 +39,7 @@ export const FoodData = [
     image:
       "https://res.cloudinary.com/dowiygzq3/image/upload/v1684447971/image_ds0cdr.png",
     priceRange: 1,
-    info: "Visiting a standing sushi bar is a must while you’re in Tokyo and Uogashi Nihon-Ichi is one of the best around. You’ll find this chain eatery in a few areas around Tokyo, including its newly reopened outlet in Shibuya Dogenzaka. The best part about visiting this joint is watching the sushi chefs up close as they whip up your order at lightning speed. There’s an English menu – or you can just point to the seafood you recognise at the counter.",
+    info: "Visiting a standing sushi bar is a must while you're in Tokyo and Uogashi Nihon-Ichi is one of the best around. You'll find this chain eatery in a few areas around Tokyo, including its newly reopened outlet in Shibuya Dogenzaka. The best part about visiting this joint is watching the sushi chefs up close as they whip up your order at lightning speed. There’s an English menu – or you can just point to the seafood you recognise at the counter.",
   },
 
   {
@@ -55,9 +55,10 @@ export const FoodData = [
       "https://res.cloudinary.com/deiaf96eq/image/upload/v1684529636/p14-swinnerton-maruka-y-20170716_gwmfuq.jpg",
     ],
     priceRange: 1,
-    info: "Udon Maruka in Kanda is by far the best Sanuki udon restaurant in Tokyo, and you´ll have to be prepared to queue 45 minutes or more for the pleasure of slurping these thick, chewy noodles. Noodle enthusiasts in Tokyo swear by Udon Maruka.",
+    info: "Udon Maruka in Kanda is by far the best Sanuki udon restaurant in Tokyo, and you'll have to be prepared to queue 45 minutes or more for the pleasure of slurping these thick, chewy noodles. Noodle enthusiasts in Tokyo swear by Udon Maruka.",
     openingHours:
       "Monday-Friday: 11:00 - 16:00 & 17:00 - 19:30, Saturday: 11:00 - 14:30 and closed on Sunday",
+    link: "https://trulytokyo.com/udon-maruka/",
   },
 
   {
@@ -73,6 +74,7 @@ export const FoodData = [
     priceRange: 1,
     info: "Famous ramen restaurant. Here you sit in a sort of box where your ramen is provided through a small shutter. Prices from NOK 63.",
     openingHours: "10:00 - 06:00",
+    link: "https://en.ichiran.com/shop/tokyo/shibuya/",
   },
 
   {
@@ -106,6 +108,26 @@ export const FoodData = [
     priceRange: 2,
     info: "It´s close to the shopping area. Food selection and payment is made at the 'ATM machine' outside.",
     openingHours: "11:00 - 23:00",
+    link: "http://oreryushio.co.jp/",
+  },
+
+  {
+    location: "Kichi Kichi Omurice",
+    address:
+      "185-4 Zaimokucho, Sanjo Pontocho-Dori Sagaru, Nakagyo-Ku, Kyoto Kyoto Prefecture",
+    city: "Kyoto",
+    category: "Rice 🍚",
+    image:
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1684707719/Kichi-Kichi_-800x533-2-800x533_ght6iy.jpg",
+    galleryImages: [
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1684707793/IMG_7394-1024x683_ej4ssi.jpg",
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1684707793/megx7y1u6miym5qubfxe_snn6wu.webp",
+    ],
+    priceRange: 3,
+    info: "Super popular place because of the owners energy!",
+    openingHours:
+      "Monday-Tuesday & Thursday-Friday: 17:00 - 21:00, closed on Wednesday, Saturday-Sunday: 12:00 - 14:00",
+    link: "https://kichikichi.com/en/menu/",
   },
 
   {
