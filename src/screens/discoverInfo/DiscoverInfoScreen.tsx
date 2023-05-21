@@ -98,7 +98,8 @@ const styles = StyleSheet.create({
         height: 200,
         // width: '100%',
         width: 325,
-        borderRadius: theme.radius.default
+        borderRadius: theme.radius.default,
+        resizeMode: 'cover'
     },
 
     imageContainer: {
