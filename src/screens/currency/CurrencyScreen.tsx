@@ -1,4 +1,4 @@
-import { StyleSheet, View, Image, TextInput, ScrollView } from 'react-native'
+import { StyleSheet, View, Image, TextInput, ScrollView, TouchableOpacity } from 'react-native'
 import Body from '../../components/body/Body'
 import { styling, theme } from '../../assets/Theme'
 
@@ -7,11 +7,19 @@ import Button from '../../components/button/Button'
 import { SetStateAction, useEffect, useState } from 'react'
 import Loader from '../../components/loader/Loader'
 
+// SVG
+import RepeatArrow from '../../assets/svg/RepeatArrow.svg'
+
 const CurrencyScreen = () => {
+    // FLAGS
+    const japan = 'https://res.cloudinary.com/dowiygzq3/image/upload/v1684254016/Flag_of_Japan.svg_tgsat0.webp'
+    const norway = 'https://res.cloudinary.com/dowiygzq3/image/upload/v1684254014/Flag-Norway_l1pigi.webp'
+
     const { colors } = useTheme()
 
     const [rate, setRate] = useState(null)
     const [res, setRes] = useState(null)
+    const [selectedRate, setSelectedRate] = useState('NOK')
 
     useEffect(() => {
         setCurrency(prev => ({ ...prev, nok: 100 * rate }))
@@ -51,7 +59,7 @@ const CurrencyScreen = () => {
                     <View style={[styling.flexCenter, styling.spaceBetween]}>
                         <Image
                             source={{
-                                uri: 'https://res.cloudinary.com/dowiygzq3/image/upload/v1684254016/Flag_of_Japan.svg_tgsat0.webp'
+                                uri: selectedRate === 'NOK' ? japan : norway
                             }}
                             style={[styles.flag]}
                         />
@@ -59,20 +67,38 @@ const CurrencyScreen = () => {
                             placeholder="100 YEN"
                             placeholderTextColor={colors.secondaryText}
                             style={[styles.formInput]}
-                            value={currency.jpy.toString()}
+                            value={selectedRate === 'NOK' ? currency.jpy.toString() : currency.nok.toString()}
                             onChangeText={text =>
-                                setCurrency(prev => ({ ...prev, nok: (parseFloat(text) * rate).toFixed(2), jpy: text }))
+                                selectedRate === 'NOK'
+                                    ? setCurrency(prev => ({
+                                          ...prev,
+                                          nok: (parseFloat(text) * rate).toFixed(2),
+                                          jpy: text
+                                      }))
+                                    : setCurrency(prev => ({
+                                          ...prev,
+                                          nok: text,
+                                          jpy: (parseFloat(text) / rate).toFixed(2)
+                                      }))
                             }
                             keyboardType="number-pad"
                         />
                     </View>
 
-                    <View style={[styles.divider, { borderTopColor: colors.border }]} />
+                    <View style={[styles.divider, { borderTopColor: colors.border }]}>
+                        <TouchableOpacity
+                            activeOpacity={0.3}
+                            style={[styles.repeatArrow]}
+                            onPress={() => (selectedRate === 'NOK' ? setSelectedRate('JPY') : setSelectedRate('NOK'))}
+                        >
+                            <RepeatArrow width={30} height={30} fill={colors.primary} />
+                        </TouchableOpacity>
+                    </View>
 
                     <View style={[styling.flexCenter, styling.spaceBetween]}>
                         <Image
                             source={{
-                                uri: 'https://res.cloudinary.com/dowiygzq3/image/upload/v1684254014/Flag-Norway_l1pigi.webp'
+                                uri: selectedRate === 'NOK' ? norway : japan
                             }}
                             style={[styles.flag]}
                         />
@@ -80,7 +106,15 @@ const CurrencyScreen = () => {
                             placeholder={`${test} NOK`}
                             placeholderTextColor={colors.secondaryText}
                             style={[styles.formInput, { color: colors.secondaryText }]}
-                            value={currency.nok.toString() === 'NaN' ? 'NOK' : currency.nok.toString()}
+                            value={
+                                selectedRate === 'NOK'
+                                    ? currency.nok.toString() === 'NaN'
+                                        ? 'NOK'
+                                        : currency.nok.toString()
+                                    : currency.jpy.toString() === 'NaN'
+                                    ? 'JPY'
+                                    : currency.jpy.toString()
+                            }
                             editable={false}
                         />
                     </View>
@@ -119,7 +153,7 @@ const styles = StyleSheet.create({
     container: {
         padding: 25,
         marginHorizontal: 20,
-        gap: 35,
+        gap: 45,
         borderRadius: theme.radius.default
     },
 
@@ -130,5 +164,10 @@ const styles = StyleSheet.create({
     formInput: {
         fontSize: 32,
         color: 'white'
+    },
+    repeatArrow: {
+        position: 'absolute',
+        top: -15,
+        left: 10
     }
 })
