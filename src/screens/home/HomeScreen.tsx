@@ -131,9 +131,7 @@ const HomeScreen = () => {
         </ScrollView>
 
         <View style={[styling.ph10, styling.mt40]}>
-          <Body style={[theme.textVariants.t17SemiBold]}>
-            🧁 For sukker elskere 🧁
-          </Body>
+          <Body style={[theme.textVariants.t17SemiBold]}>🧁 Dessert 🧁</Body>
         </View>
 
         <ScrollView
