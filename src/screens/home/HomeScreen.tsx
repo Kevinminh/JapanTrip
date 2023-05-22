@@ -17,7 +17,7 @@ const HomeScreen = () => {
 
     const [selectedFood, setSelectedFood] = useState('Sushi 🍣')
     const [selectedDrink, setSelectedDrink] = useState('Kaffe ☕️')
-    const [selectedDessert, setSelectedDessert] = useState('Mochi 🍡')
+    const [selectedDessert, setSelectedDessert] = useState('Crepe 🥞')
 
     const navigation = useNavigation<RootStackParamList>()
 
