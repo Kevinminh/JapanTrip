@@ -16,6 +16,7 @@ export const DrinkData = [
     info: "Have to make a reservation. Just 10min walk from Tokyo Station. It's a no-go😢 Fully booked!!!!",
     openingHours: "10:00 - 22:00",
     link: "https://www.pokemoncenter-online.com/cafe/en/",
+    coordinates: [35.680672689981904, 139.77444682014018],
   },
 
   {
@@ -35,6 +36,7 @@ export const DrinkData = [
     info: "Known for their 3D latte art. 15min walk from Shibuya Station.",
     openingHours: "10:00 - 19:00",
     link: "https://www.reissue.co.jp/",
+    coordinates: [35.6711926148302, 139.70796366077687],
   },
 
   {
@@ -54,6 +56,7 @@ export const DrinkData = [
     openingHours:
       "Monday, Tuesday, Thursday & Friday: 11:00 - 16:30, Wednesday: 11:00 - 15:30 and Saturday-Sunday: 11:00 - 17:30",
     link: "https://www.hatcoffee.jp/",
+    coordinates: [35.7073193386447, 139.79324240202737],
   },
 
   {
@@ -73,6 +76,7 @@ export const DrinkData = [
     openingHours:
       "Monday - Thursday & Sunday: 13:00 - 23:00, Friday-Saturday: 13:00 - 05:00",
     link: "https://maidreamin.com/",
+    coordinates: [35.701961681255305, 139.77135551631486],
   },
 
   {
@@ -92,6 +96,7 @@ export const DrinkData = [
     info: "Good environment. Behind a large hotel,easy to access. A 6min walk from Shibuya Station.",
     openingHours: "08:00 - 22:00",
     link: "https://whiteglasscoffee.com/",
+    coordinates: [35.655881360843566, 139.69976044327473],
   },
 
   {
@@ -111,6 +116,7 @@ export const DrinkData = [
     info: "A Korean style café in Harajuku. Just 8min walk from Harajuku Station.",
     openingHours: "12:00 - 18:00",
     link: "https://www.muunseoul.com/",
+    coordinates: [35.671686425576276, 139.70870816752299],
   },
 
   {
@@ -130,6 +136,7 @@ export const DrinkData = [
     info: "'Set in an original wooden machiya (townhouse) from the Taisho period (1912 - 1926), the coffee house blends in perfectly with the neighbourhood´s historic vibe'",
     openingHours: "08:00 - 20:00",
     link: "https://store.starbucks.co.jp/detail-1476/?utm_source=GMB&utm_medium=organic&utm_campaign=store&utm_content=1476",
+    coordinates: [34.998314503375, 135.780802380487],
   },
 
   {

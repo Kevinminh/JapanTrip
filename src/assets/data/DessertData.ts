@@ -15,6 +15,7 @@ export const DessertData = [
     openingHours:
       "Monday-Friday: 10:30 - 20:00 & Saturday-Sunday: 10:00 - 20:00",
     link: "https://www.marion.co.jp/",
+    coordinates: [35.67127279799029, 139.70489642045848],
   },
 
   {
@@ -32,6 +33,7 @@ export const DessertData = [
     priceRange: 1,
     info: "Right beside Mega Don Quijote. Costs around NOK 38.",
     link: "https://soranews24.com/2022/09/27/edible-10-yen-coins-become-a-hot-new-trend-in-tokyo%E3%80%90taste-test%E3%80%91/",
+    coordinates: [35.66038646704631, 139.69784597521078],
   },
 
   {
@@ -50,6 +52,7 @@ export const DessertData = [
     info: "Cream Puffs shaped as Totoro.",
     openingHours: "10:30 - 19:00, closed on Tuesday",
     link: "http://www.shiro-hige.net/",
+    coordinates: [35.65913723345843, 139.6627055810148],
   },
 
   {
@@ -68,5 +71,6 @@ export const DessertData = [
     info: "Super known mochi place in Kyoto. They even put up a show sometimes where they pound the mochi. Mostly in PMs and sometimes in AMs.",
     openingHours: "10:00 - 19:00",
     link: "http://www.nakatanidou.jp/",
+    coordinates: [34.99753665201462, 135.77636545540685],
   },
 ];
