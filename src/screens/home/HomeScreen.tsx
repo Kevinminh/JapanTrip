@@ -35,7 +35,7 @@ const HomeScreen = () => {
     // SELECTED
     const selectedFoodCategory = FoodData.filter(item => item.category === selectedFood)
     const selectedDrinkCategory = DrinkData.filter(item => item.category === selectedDrink)
-    const selectedDessertCategory = DessertData.filter(item => item.category === selectedDrink)
+    const selectedDessertCategory = DessertData.filter(item => item.category === selectedDessert)
 
     return (
         <View style={[styling.flex1]}>

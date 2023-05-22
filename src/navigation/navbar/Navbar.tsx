@@ -9,10 +9,11 @@ import { useTheme } from '@react-navigation/native'
 import HomeScreen from '../../screens/home/HomeScreen'
 import DiscoverScreen from '../../screens/discover/DiscoverScreen'
 import CurrencyScreen from '../../screens/currency/CurrencyScreen'
+import MapScreen from '../../screens/map/MapScreen'
 
 // SVG
 import Shop from '../../assets/svg/Shop.svg'
-import HouseFilled from '../../assets/svg/HouseFilled.svg'
+import Map from '../../assets/svg/Map.svg'
 import Currency from '../../assets/svg/Currency.svg'
 import Compass from '../../assets/svg/Compass.svg'
 import CompassFilled from '../../assets/svg/CompassFilled.svg'
@@ -47,6 +48,26 @@ const Navbar = () => {
                             <Shop width={25} height={25} fill={colors.primary} />
                         ) : (
                             <Shop width={25} height={25} fill={colors.text} />
+                        )
+                }}
+                listeners={{
+                    tabPress: () => {
+                        hapticsLight()
+                    }
+                }}
+            />
+            <Tab.Screen
+                component={MapScreen}
+                name="MapTab"
+                options={{
+                    tabBarLabel: 'Kart',
+                    title: 'Kart',
+                    headerShown: false,
+                    tabBarIcon: ({ focused }) =>
+                        focused ? (
+                            <Map width={25} height={25} fill={colors.primary} />
+                        ) : (
+                            <Map width={25} height={25} fill={colors.text} />
                         )
                 }}
                 listeners={{

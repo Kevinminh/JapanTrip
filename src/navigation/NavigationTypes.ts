@@ -17,6 +17,7 @@ export type BottomTabNavigatorParamList = {
     HomeTab: undefined
     DiscoverTab: undefined
     CurrencyTab: undefined
+    MapTab: undefined
     ProfileTab: { isModal: false }
     BookingTab: { enableChevron: false }
     ExploreTab: { isModal: false }

@@ -4,6 +4,7 @@ import Body from '../../components/body/Body'
 import { useTheme } from '@react-navigation/native'
 
 import { styling, theme } from '../../assets/Theme'
+import { openMaps } from '../../utils/HandleAddressPress'
 
 // DATA
 
@@ -45,9 +46,11 @@ const DiscoverInfoScreen = () => {
                     <Body style={[theme.textVariants.t13Regular, { color: colors.secondaryText }]}>
                         🕒 {data.openingHours}
                     </Body>
-                    <Body style={[theme.textVariants.t13Regular, { color: colors.secondaryText }]}>
-                        📍 {data.address}
-                    </Body>
+                    <TouchableOpacity activeOpacity={0.3} onPress={() => openMaps(data.address)}>
+                        <Body style={[theme.textVariants.t13Regular, { color: colors.secondaryText }]}>
+                            📍 {data.address}
+                        </Body>
+                    </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.3}>
                         <Body>🌐 {data.link}</Body>
                     </TouchableOpacity>
