@@ -1,15 +1,32 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, Image, Platform, StyleSheet, Animated } from 'react-native'
 
 import MapView, { Marker } from 'react-native-maps'
 import * as Location from 'expo-location'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Loader from '../../components/loader/Loader'
 import { FoodData } from '../../assets/data/FoodData'
 import { theme } from '../../assets/Theme'
+import CalloutCardExplore from './components/CalloutCard'
+
+type MapStateProps = {
+    location: string
+    address: string
+    city: string
+    category: string
+    image: string
+    priceRange: number
+    info: string
+    coordinates: [number, number]
+    openingHours: string
+    link: string
+    galleryImages: [string, string, string]
+}
 
 const MapScreen = () => {
     const [location, setLocation] = useState(null)
     const [errorMsg, setErrorMsg] = useState(null)
+
+    const [mapState, setMapState] = useState<MapStateProps>(FoodData)
 
     useEffect(() => {
         ;(async () => {
@@ -31,11 +48,71 @@ const MapScreen = () => {
         text = JSON.stringify(location)
     }
 
+    const _map = useRef<any>(null)
+    const _scrollView = useRef<any>(null)
+
+    // ANIMATING THE SCREEN
+    let mapAnimation = new Animated.Value(0)
+    let mapIndex = 0
+    useEffect(() => {
+        mapAnimation.addListener(({ value }) => {
+            let index = Math.floor(value / CARD_WIDTH + 0.3) // animate 30% away from landing on the next item
+            if (index >= mapState.coordinates.length) {
+                index = mapState.coordinates.length - 1
+            }
+            if (index <= 0) {
+                index = 0
+            }
+            clearTimeout(regionTimeout) // FIX WHY?
+
+            const regionTimeout = setTimeout(() => {
+                if (mapIndex !== index) {
+                    mapIndex = index
+                    const { coordinate } = mapState.coordinates[index]
+                    _map?.current?.animateToRegion(
+                        {
+                            ...coordinate,
+                            latitudeDelta: mapState.coordinates[0],
+                            longitudeDelta: mapState.coordinates[1]
+                        },
+                        350
+                    )
+                }
+            }, 10)
+        })
+    })
+
+    // // ANIMATING THE MARKERS
+    const { width } = Dimensions.get('window')
+    const CARD_WIDTH = width * 0.8
+    const interpolations = mapState.map((marker, index) => {
+        const inputRange = [(index - 1) * CARD_WIDTH, index * CARD_WIDTH, (index + 1) * CARD_WIDTH]
+
+        const scale = mapAnimation.interpolate({
+            inputRange,
+            outputRange: [1, 1.5, 1],
+            extrapolate: 'clamp'
+        })
+
+        return { scale }
+    })
+
+    // PRESSING ON MARKERS
+    const SPACING_FOR_CARD_INSET = width * 0.1 - 10
+    const handleMarkerPress = (mapEventData: { _targetInst: { return: { key: any } } } | undefined) => {
+        const markerID = mapEventData?._targetInst.return.key
+        let x = markerID * CARD_WIDTH + markerID * 20
+
+        if (Platform.OS === 'ios') {
+            x = x - SPACING_FOR_CARD_INSET
+        }
+
+        _scrollView?.current?.scrollTo({ x: x, y: 0, animated: true })
+    }
+
     if (location === null) return <Loader />
 
-    function asd(item) {
-        console.log(item)
-    }
+    console.log(mapState[0].coordinates)
 
     return (
         <MapView
@@ -50,9 +127,10 @@ const MapScreen = () => {
             mapType="mutedStandard"
             showsUserLocation={true}
         >
-            {FoodData.map((item, index) => (
+            {mapState.map((item, index) => (
                 <Marker key={index} coordinate={{ latitude: item.coordinates[0], longitude: item.coordinates[1] }}>
                     <Image source={{ uri: item.image }} style={styles.markerImage} />
+                    <CalloutCardExplore data={item} />
                 </Marker>
             ))}
         </MapView>
