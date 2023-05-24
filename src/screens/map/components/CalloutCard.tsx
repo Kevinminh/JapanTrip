@@ -11,7 +11,6 @@ import Compass from '../../../assets/svg/Compass.svg'
 import Dollar from '../../../assets/svg/Dollar.svg'
 
 type CalloutCardExploreProps = {
-    // data: ExploreDataProps | null
     data: {
         location: string
         address: string

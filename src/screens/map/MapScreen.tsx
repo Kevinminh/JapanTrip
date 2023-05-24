@@ -1,14 +1,15 @@
-import { Dimensions, Image, Platform, StyleSheet, Animated } from 'react-native'
+import { Dimensions, Image, Platform, StyleSheet, Animated, View } from 'react-native'
 
 import MapView, { Marker } from 'react-native-maps'
 import * as Location from 'expo-location'
 import { useEffect, useRef, useState } from 'react'
 import Loader from '../../components/loader/Loader'
 import { FoodData } from '../../assets/data/FoodData'
-import { theme } from '../../assets/Theme'
+import { styling, theme } from '../../assets/Theme'
 import CalloutCardExplore from './components/CalloutCard'
+import CardSliderExplore from './components/CardSlider'
 
-type MapStateProps = {
+export type MapStateProps = {
     location: string
     address: string
     city: string
@@ -57,8 +58,8 @@ const MapScreen = () => {
     useEffect(() => {
         mapAnimation.addListener(({ value }) => {
             let index = Math.floor(value / CARD_WIDTH + 0.3) // animate 30% away from landing on the next item
-            if (index >= mapState.coordinates.length) {
-                index = mapState.coordinates.length - 1
+            if (index >= mapState.length) {
+                index = mapState.length - 1
             }
             if (index <= 0) {
                 index = 0
@@ -68,7 +69,7 @@ const MapScreen = () => {
             const regionTimeout = setTimeout(() => {
                 if (mapIndex !== index) {
                     mapIndex = index
-                    const { coordinate } = mapState.coordinates[index]
+                    const { coordinate } = mapState
                     _map?.current?.animateToRegion(
                         {
                             ...coordinate,
@@ -115,25 +116,35 @@ const MapScreen = () => {
     console.log(mapState[0].coordinates)
 
     return (
-        <MapView
-            initialRegion={{
-                latitude: location.coords.latitude,
-                longitude: location.coords.longitude,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421
-            }}
-            style={{ flex: 1 }}
-            userInterfaceStyle="dark"
-            mapType="mutedStandard"
-            showsUserLocation={true}
-        >
-            {mapState.map((item, index) => (
-                <Marker key={index} coordinate={{ latitude: item.coordinates[0], longitude: item.coordinates[1] }}>
-                    <Image source={{ uri: item.image }} style={styles.markerImage} />
-                    <CalloutCardExplore data={item} />
-                </Marker>
-            ))}
-        </MapView>
+        <View style={styling.flex1}>
+            <MapView
+                initialRegion={{
+                    latitude: location.coords.latitude,
+                    longitude: location.coords.longitude,
+                    latitudeDelta: 0.0922,
+                    longitudeDelta: 0.0421
+                }}
+                style={{ flex: 1 }}
+                userInterfaceStyle="dark"
+                mapType="mutedStandard"
+                showsUserLocation={true}
+            >
+                {mapState.map((item, index) => (
+                    <Marker key={index} coordinate={{ latitude: item.coordinates[0], longitude: item.coordinates[1] }}>
+                        <Image source={{ uri: item.image }} style={styles.markerImage} />
+                        <CalloutCardExplore data={item} />
+                    </Marker>
+                ))}
+            </MapView>
+
+            <CardSliderExplore
+                data={mapState}
+                mapState={mapState}
+                mapAnimation={mapAnimation}
+                _map={_map}
+                _scrollView={_scrollView}
+            />
+        </View>
     )
 }
 
