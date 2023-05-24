@@ -155,6 +155,7 @@ export const FoodData = [
     category: "Generelt",
     priceRange: 1,
     coordinates: [35.69745174650607, 139.7046306342955],
+    info: "It´s everywhere, but the one on the map is the one closest to the hotel in Tokyo",
   },
 
   {
@@ -166,6 +167,7 @@ export const FoodData = [
     category: "Generelt",
     priceRange: 1,
     coordinates: [35.69730864062118, 139.7051916372179],
+    info: "It´s everywhere, but the one on the map is the one closest to the hotel in Tokyo",
   },
 
   {
@@ -177,5 +179,6 @@ export const FoodData = [
     category: "Generelt",
     priceRange: 1,
     coordinates: [35.69806687933986, 139.70273521453188],
+    info: "It´s everywhere, but the one on the map is the one closest to the hotel in Tokyo",
   },
 ];
