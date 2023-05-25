@@ -4,10 +4,10 @@ import MapView, { Marker } from 'react-native-maps'
 import * as Location from 'expo-location'
 import { useEffect, useRef, useState } from 'react'
 import Loader from '../../components/loader/Loader'
-import { FoodData } from '../../assets/data/FoodData'
 import { styling, theme } from '../../assets/Theme'
 import CalloutCardExplore from './components/CalloutCard'
 import CardSliderExplore from './components/CardSlider'
+import { MapData } from '../../assets/data/MapData'
 
 export type MapStateProps = {
     location: string
@@ -27,7 +27,7 @@ const MapScreen = () => {
     const [location, setLocation] = useState(null)
     const [errorMsg, setErrorMsg] = useState(null)
 
-    const [mapState, setMapState] = useState<MapStateProps>(FoodData)
+    const [mapState, setMapState] = useState<any>(MapData)
 
     useEffect(() => {
         ;(async () => {
@@ -47,6 +47,7 @@ const MapScreen = () => {
         text = errorMsg
     } else if (location) {
         text = JSON.stringify(location)
+        console.log(text)
     }
 
     const _map = useRef<any>(null)
@@ -69,12 +70,19 @@ const MapScreen = () => {
             const regionTimeout = setTimeout(() => {
                 if (mapIndex !== index) {
                     mapIndex = index
-                    const { coordinate } = mapState
+                    // const { coordinate } = mapState
+                    // console.log(coordinate[index])
+
+                    // console.log(mapState[index].coordinates[0])
+                    console.log('FUNCTION RUN')
+
                     _map?.current?.animateToRegion(
                         {
-                            ...coordinate,
-                            latitudeDelta: mapState.coordinates[0],
-                            longitudeDelta: mapState.coordinates[1]
+                            // ...coordinate,
+                            latitude: mapState[index].coordinates[0],
+                            longitude: mapState[index].coordinates[1],
+                            latitudeDelta: 0.0922,
+                            longitudeDelta: 0.0421
                         },
                         350
                     )
@@ -113,8 +121,6 @@ const MapScreen = () => {
 
     if (location === null) return <Loader />
 
-    console.log(mapState[0].coordinates)
-
     return (
         <View style={styling.flex1}>
             <MapView
@@ -128,13 +134,31 @@ const MapScreen = () => {
                 userInterfaceStyle="dark"
                 mapType="mutedStandard"
                 showsUserLocation={true}
+                ref={_map}
             >
-                {mapState.map((item, index) => (
-                    <Marker key={index} coordinate={{ latitude: item.coordinates[0], longitude: item.coordinates[1] }}>
-                        <Image source={{ uri: item.image }} style={styles.markerImage} />
-                        <CalloutCardExplore data={item} />
-                    </Marker>
-                ))}
+                {mapState.map((item, index) => {
+                    const scaleStyle = {
+                        transform: [
+                            {
+                                scale: interpolations[index].scale
+                            }
+                        ]
+                    }
+
+                    return (
+                        <Marker
+                            key={index}
+                            coordinate={{ latitude: item.coordinates[0], longitude: item.coordinates[1] }}
+                            onPress={(e: any) => handleMarkerPress(e)}
+                        >
+                            <Image
+                                source={{ uri: item.image }}
+                                style={[styles.markerImage, { borderColor: item.type === 'FOOD' ? 'orange' : 'pink' }]}
+                            />
+                            <CalloutCardExplore data={item} />
+                        </Marker>
+                    )
+                })}
             </MapView>
 
             <CardSliderExplore
@@ -155,7 +179,6 @@ const styles = StyleSheet.create({
         width: 55,
         height: 55,
         borderRadius: theme.radius.rounded,
-        borderColor: 'orange',
         borderWidth: 3
     }
 })

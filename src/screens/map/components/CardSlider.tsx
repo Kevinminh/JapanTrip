@@ -1,6 +1,6 @@
 import { StyleSheet, View, Animated, Dimensions, Image, Platform } from 'react-native'
 import { useTheme, useNavigation } from '@react-navigation/native'
-import { styling, theme } from '../../../assets/Theme'
+import { theme } from '../../../assets/Theme'
 import { MapStateProps } from '../MapScreen'
 import { RootStackParamList } from '../../../navigation/NavigationTypes'
 import { ScreenNames } from '../../../navigation/stack/ScreenNames'
@@ -47,17 +47,21 @@ const CardSliderExplore = ({ ...props }: CardSliderExploreProps) => {
             if (index <= 0) {
                 index = 0
             }
+
             clearTimeout(regionTimeout) // FIX WHY?
 
             const regionTimeout = setTimeout(() => {
                 if (mapIndex !== index) {
                     mapIndex = index
-                    const { coordinate } = props.mapState.markers[index]
+                    // const { coordinate } = props.mapState.coordinates[index]
+                    // console.log('ASDASD', coordinate)
                     props._map.current.animateToRegion(
                         {
-                            ...coordinate,
-                            latitudeDelta: props.mapState.region.latitudeDelta,
-                            longitudeDelta: props.mapState.region.longitudeDelta
+                            // ...coordinate,
+                            latitude: props.mapState[index].coordinates[0],
+                            longitude: props.mapState[index].coordinates[1],
+                            latitudeDelta: 0.0922,
+                            longitudeDelta: 0.0421
                         },
                         350
                     )
@@ -66,7 +70,7 @@ const CardSliderExplore = ({ ...props }: CardSliderExploreProps) => {
         })
     })
 
-    console.log(props.mapState.length)
+    // console.log(props.mapState[0].coordinates)
 
     return (
         <Animated.ScrollView
@@ -120,14 +124,6 @@ const CardSliderExplore = ({ ...props }: CardSliderExploreProps) => {
                             {item.location}
                         </Body>
                         <Body style={[theme.textVariants.t13Regular]}>{item.address}</Body>
-                        {/* <View style={[styling.flexCenter, styling.gap3]}>
-                            <StarFilled width={10} height={10} fill={colors.yellow} />
-                            <StarFilled width={10} height={10} fill={colors.yellow} />
-                            <StarFilled width={10} height={10} fill={colors.yellow} />
-                            <Star width={10} height={10} fill={colors.yellow} />
-                            <Star width={10} height={10} fill={colors.yellow} />
-                            <Body style={[theme.textVariants.bodySecondary]}>(kommer!)</Body>
-                        </View> */}
 
                         <Button text="Bestill" />
                     </View>

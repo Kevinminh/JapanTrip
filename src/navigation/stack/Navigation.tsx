@@ -9,7 +9,7 @@ const Navigation = () => {
     return (
         <View style={{ flex: 1, backgroundColor: isDark ? '#000000' : '#ffffff' }}>
             <NavigationContainer theme={isDark ? darkMode : lightMode}>
-                <StatusBar style={isDark ? 'dark' : 'light'} />
+                <StatusBar style={isDark ? 'light' : 'dark'} />
 
                 <NavStack />
             </NavigationContainer>
