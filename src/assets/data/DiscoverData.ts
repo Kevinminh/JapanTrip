@@ -82,6 +82,24 @@ export const DiscoverData = [
   },
 
   {
+    location: "Katsuo-ji Temple",
+    city: "OSAKA",
+    image:
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1685201240/katsuoji-01_atzvl8.jpg",
+    galleryImages: [
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1685201240/DSC01396-1024x683.jpg_w9acpz.webp",
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1685201240/Daruma-Street-Katsuoji-Osaka-Japan_yhsdea.jpg",
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1685201240/Katsuo-ji-rooftop-1-1024x768_mjf7eo.jpg",
+    ],
+    address: "2914-1 Aomatani, Minoh, Osaka 562-8508, Japan",
+    info: "A mystical bridge shrouded in fog, hundreds of bright red daruma dolls and all the cherry trees. Need to buy tickets: NOK 39,33.",
+    link: "https://katsuo-ji-temple.or.jp/",
+    openingHours:
+      "Monday-Friday: 08:00 - 17:00, Saturday: 08:00 - 17:30 & Sunday: 08:00 - 18:00",
+    coordinates: [34.86595123900404, 135.4911084553092],
+  },
+
+  {
     location: "Jonan-Gu Shrine",
     city: "KYOTO",
     image:
@@ -113,6 +131,38 @@ export const DiscoverData = [
       "https://res.cloudinary.com/dowiygzq3/image/upload/v1684586051/Sea_Amanohashidate-03-1_qlfqpi.webp",
     ],
     coordinates: [35.570349340336385, 135.1918629297915],
+  },
+
+  {
+    location: "Ryuonji Temple",
+    city: "KYOTO",
+    image:
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1685197913/01A1q120008hjii855D70_n60ffy.jpg",
+    link: "",
+    info: "Not so known temple for tourist, a lowkey place",
+    openingHours: "24/7",
+    address: "Komizobata-1 Sonobecho Nie, Nantan, Kyoto 622-0061, Japan",
+    galleryImages: [
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1685197914/ww041f000001gp48vA321_btiu5o.png",
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1685197912/caption_pjxdi1.jpg",
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1685197911/0ww3s12000ae17xyr4B3C_f38tkt.jpg",
+    ],
+    coordinates: [35.105828602487634, 135.43243403656058],
+  },
+
+  {
+    location: "Kuya Falls",
+    city: "KYOTO",
+    image:
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1685198778/44410218550_46ee55122a_b_slancq.jpg",
+    link: "https://www.insidekyoto.com/takao-hozukyo-hike-via-kiyotaki-kuya-no-taki-waterfall",
+    info: "Start Point: Takao Village in the mountains NW of Kyoto, Finish Point: JR Hozukyo Station in the mountains west of Kyoto. Duration: 6h = 11km.",
+    openingHours: "24/7",
+    galleryImages: [
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1685198778/Takao_07-705x501_wj8dkn.jpg",
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1685198778/caption_irex6z.jpg",
+    ],
+    coordinates: [35.05271246542351, 135.64832936577454],
   },
 
   {
