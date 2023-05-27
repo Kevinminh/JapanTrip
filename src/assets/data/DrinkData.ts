@@ -140,9 +140,22 @@ export const DrinkData = [
   },
 
   {
+    location: "K36 (The Bar & Rooftop)",
+    address:
+      "〒605-0862 Kyoto, Higashiyama Ward, Kiyomizu, 2 Chome−204-2 4F The Hotel Seiryu",
+    city: "Kyoto",
     category: "Bar 🍺",
-    location: "",
-    address: "",
+    image:
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1685200215/d24668-781-104700-12_zmamzy.jpg",
+    galleryImages: [
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1685200215/photo0jpg_dos2zh.jpg",
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1685200215/bar_pc_02_03_x1jxot.jpg",
+    ],
+    priceRange: 2,
+    info: "A rooftop bar in Kyoto. Some say it's overrated cause of the amount of ice in the drinks, and some say it's a good bar with amazing view.",
+    openingHours: "13:00 - 22:00",
+    link: "https://stillfoods.com/qr/k36",
+    coordinates: [34.9978193673881, 135.77954429764202],
   },
 
   {
