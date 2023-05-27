@@ -10,12 +10,14 @@ import HomeScreen from '../../screens/home/HomeScreen'
 import DiscoverScreen from '../../screens/discover/DiscoverScreen'
 import CurrencyScreen from '../../screens/currency/CurrencyScreen'
 import MapScreen from '../../screens/map/MapScreen'
+import InfoScreen from '../../screens/info/InfoScreen'
 
 // SVG
 import Shop from '../../assets/svg/Shop.svg'
 import Map from '../../assets/svg/Map.svg'
 import Currency from '../../assets/svg/Currency.svg'
 import Compass from '../../assets/svg/Compass.svg'
+import Info from '../../assets/svg/Info.svg'
 import CompassFilled from '../../assets/svg/CompassFilled.svg'
 
 const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>()
@@ -40,8 +42,8 @@ const Navbar = () => {
                 component={HomeScreen}
                 name="HomeTab"
                 options={{
-                    tabBarLabel: 'Mat',
-                    title: 'Mat',
+                    tabBarLabel: 'Food',
+                    title: 'Food',
                     headerShown: true,
                     tabBarIcon: ({ focused }) =>
                         focused ? (
@@ -56,12 +58,13 @@ const Navbar = () => {
                     }
                 }}
             />
+
             <Tab.Screen
                 component={MapScreen}
                 name="MapTab"
                 options={{
-                    tabBarLabel: 'Kart',
-                    title: 'Kart',
+                    tabBarLabel: 'Map',
+                    title: 'Map',
                     headerShown: false,
                     tabBarIcon: ({ focused }) =>
                         focused ? (
@@ -76,12 +79,13 @@ const Navbar = () => {
                     }
                 }}
             />
+
             <Tab.Screen
                 component={DiscoverScreen}
                 name="DiscoverTab"
                 options={{
-                    tabBarLabel: 'Utforsk',
-                    title: 'Utforsk',
+                    tabBarLabel: 'Explore',
+                    title: 'Explore',
                     headerShown: true,
                     tabBarIcon: ({ focused }) =>
                         focused ? (
@@ -96,11 +100,12 @@ const Navbar = () => {
                     }
                 }}
             />
+
             <Tab.Screen
                 component={CurrencyScreen}
                 name="CurrencyTab"
                 options={{
-                    tabBarLabel: 'Valuta',
+                    tabBarLabel: 'Currency',
                     title: 'Valutakalkulator',
                     headerShown: true,
                     tabBarIcon: ({ focused }) =>
@@ -108,6 +113,27 @@ const Navbar = () => {
                             <Currency width={25} height={25} fill={colors.primary} />
                         ) : (
                             <Currency width={25} height={25} fill={colors.text} />
+                        )
+                }}
+                listeners={{
+                    tabPress: () => {
+                        hapticsLight()
+                    }
+                }}
+            />
+
+            <Tab.Screen
+                component={InfoScreen}
+                name="InfoTab"
+                options={{
+                    tabBarLabel: 'Info',
+                    title: 'Info',
+                    headerShown: true,
+                    tabBarIcon: ({ focused }) =>
+                        focused ? (
+                            <Info width={25} height={25} fill={colors.primary} />
+                        ) : (
+                            <Info width={25} height={25} fill={colors.text} />
                         )
                 }}
                 listeners={{

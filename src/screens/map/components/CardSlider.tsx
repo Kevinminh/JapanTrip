@@ -1,10 +1,10 @@
 import { StyleSheet, View, Animated, Dimensions, Image, Platform } from 'react-native'
 import { useTheme, useNavigation } from '@react-navigation/native'
-import { theme } from '../../../assets/Theme'
+import { styling, theme } from '../../../assets/Theme'
 import { MapStateProps } from '../MapScreen'
 import { RootStackParamList } from '../../../navigation/NavigationTypes'
 import { ScreenNames } from '../../../navigation/stack/ScreenNames'
-import { MutableRefObject, useEffect } from 'react'
+import { MutableRefObject } from 'react'
 
 // COMP
 import Body from '../../../components/body/Body'
@@ -12,6 +12,7 @@ import Body from '../../../components/body/Body'
 // SVG
 // import Star from '../../../../assets/svg/misc/Star.svg'
 // import StarFilled from '../../../../assets/svg/misc/StarFilled.svg'
+import Dollar from '../../../assets/svg/Dollar.svg'
 
 import Button from '../../../components/button/Button'
 
@@ -24,7 +25,7 @@ type CardSliderExploreProps = {
 }
 
 const { width } = Dimensions.get('window')
-const CARD_HEIGHT = 235
+const CARD_HEIGHT = 200
 const CARD_WIDTH = width * 0.8
 const SPACING_FOR_CARD_INSET = width * 0.1 - 10
 
@@ -32,45 +33,9 @@ const CardSliderExplore = ({ ...props }: CardSliderExploreProps) => {
     const { colors } = useTheme()
     const navigation = useNavigation<RootStackParamList>()
 
-    // function handleNavigate(id: number) {
-    //     navigation.navigate(ScreenNames.BarberProfileScreen, { barberId: id })
-    // }
-
-    let mapAnimation = new Animated.Value(0)
-    let mapIndex = 0
-    useEffect(() => {
-        mapAnimation.addListener(({ value }) => {
-            let index = Math.floor(value / CARD_WIDTH + 0.3) // animate 30% away from landing on the next item
-            if (index >= props.mapState.length) {
-                index = props.mapState.length - 1
-            }
-            if (index <= 0) {
-                index = 0
-            }
-
-            clearTimeout(regionTimeout) // FIX WHY?
-
-            const regionTimeout = setTimeout(() => {
-                if (mapIndex !== index) {
-                    mapIndex = index
-                    // const { coordinate } = props.mapState.coordinates[index]
-                    // console.log('ASDASD', coordinate)
-                    props._map.current.animateToRegion(
-                        {
-                            // ...coordinate,
-                            latitude: props.mapState[index].coordinates[0],
-                            longitude: props.mapState[index].coordinates[1],
-                            latitudeDelta: 0.0922,
-                            longitudeDelta: 0.0421
-                        },
-                        350
-                    )
-                }
-            }, 10)
-        })
-    })
-
-    // console.log(props.mapState[0].coordinates)
+    function handleNavigate(item: object) {
+        navigation.navigate(ScreenNames.DiscoverInfoScreen, { data: item })
+    }
 
     return (
         <Animated.ScrollView
@@ -108,14 +73,55 @@ const CardSliderExplore = ({ ...props }: CardSliderExploreProps) => {
                 <View
                     style={[
                         styles.card,
-                        { backgroundColor: colors.background, borderWidth: 2, borderColor: colors.border }
+                        {
+                            backgroundColor: colors.background,
+                            borderWidth: 2,
+                            borderColor: colors.border
+                        }
                     ]}
                     key={index}
                 >
                     <View style={[styles.cardImage]}>
                         <Image source={{ uri: item.image }} resizeMode="cover" style={[styles.cardImage]} />
-                        <View style={[styles.labelText, { backgroundColor: colors.primary }]}>
-                            <Body style={[theme.textVariants.t13SemiBold]}>Prisklasse {item.priceRange}</Body>
+                        <View
+                            style={[
+                                styles.labelText,
+                                styling.flexCenter,
+                                styling.gap10,
+                                {
+                                    backgroundColor:
+                                        item.type === 'FOOD'
+                                            ? colors.primary
+                                            : item.type === 'DESERT'
+                                            ? 'pink'
+                                            : 'brown'
+                                }
+                            ]}
+                        >
+                            <Body style={[theme.textVariants.t13SemiBold]}>
+                                {item.priceRange === 1 ? (
+                                    <Dollar width={12} height={12} fill={colors.white} />
+                                ) : item.priceRange === 2 ? (
+                                    <View style={styling.flexCenter}>
+                                        <Dollar width={12} height={12} fill={colors.white} />
+                                        <Dollar width={12} height={12} fill={colors.white} />
+                                    </View>
+                                ) : item.priceRange === 3 ? (
+                                    <View style={styling.flexCenter}>
+                                        <Dollar width={12} height={12} fill={colors.white} />
+                                        <Dollar width={12} height={12} fill={colors.white} />
+                                        <Dollar width={12} height={12} fill={colors.white} />
+                                    </View>
+                                ) : (
+                                    <></>
+                                )}
+                            </Body>
+                            <Body style={[theme.textVariants.t13SemiBold]}>
+                                {item.type === 'DESERT' ? 'Dessert' : item.type === 'FOOD' ? 'Food' : 'Drinks'}
+                            </Body>
+                        </View>
+                        <View style={[styles.cityText, { backgroundColor: colors.border }]}>
+                            <Body>{item.city}</Body>
                         </View>
                     </View>
 
@@ -123,9 +129,14 @@ const CardSliderExplore = ({ ...props }: CardSliderExploreProps) => {
                         <Body numberOfLines={1} style={[theme.textVariants.t15SemiBold]}>
                             {item.location}
                         </Body>
-                        <Body style={[theme.textVariants.t13Regular]}>{item.address}</Body>
+                        <Body
+                            style={[theme.textVariants.t13Regular, { color: colors.secondaryText }]}
+                            numberOfLines={1}
+                        >
+                            {item.address}
+                        </Body>
 
-                        <Button text="Bestill" />
+                        <Button text="Read more" onPress={() => handleNavigate(item)} />
                     </View>
                 </View>
             ))}
@@ -185,8 +196,16 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 5,
         left: 5,
-        borderRadius: theme.radius.rounded,
+        borderRadius: theme.radius.default,
         padding: 5,
         paddingHorizontal: 7.5
+    },
+    cityText: {
+        position: 'absolute',
+        right: 10,
+        bottom: 5,
+        padding: 5,
+        paddingHorizontal: 7.5,
+        borderRadius: theme.radius.default
     }
 })

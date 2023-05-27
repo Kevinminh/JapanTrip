@@ -33,11 +33,11 @@ const CalloutCardExplore = ({ ...props }: CalloutCardExploreProps) => {
                     </View>
                     <View style={[styling.flexCenter, styling.gap5]}>
                         <Dollar width={12} height={12} fill={colors.primary} />
-                        <Body style={[theme.textVariants.bodySecondary]}>Prisklasse: {props.data.priceRange}</Body>
+                        <Body style={[theme.textVariants.bodySecondary]}>Price: {props.data.priceRange}</Body>
                     </View>
                     <View style={[styling.flexCenter, styling.gap5]}>
                         <Compass width={12} height={12} fill={colors.primary} />
-                        <Body style={[theme.textVariants.bodySecondary]}>Tlf nummer: {props.data.phone}</Body>
+                        <Body style={[theme.textVariants.bodySecondary]}>Phone: {props.data.phone}</Body>
                     </View>
                 </View>
             </View>

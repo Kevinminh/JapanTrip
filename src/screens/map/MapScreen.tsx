@@ -21,6 +21,7 @@ export type MapStateProps = {
     openingHours: string
     link: string
     galleryImages: [string, string, string]
+    type: string
 }
 
 const MapScreen = () => {
@@ -70,11 +71,6 @@ const MapScreen = () => {
             const regionTimeout = setTimeout(() => {
                 if (mapIndex !== index) {
                     mapIndex = index
-                    // const { coordinate } = mapState
-                    // console.log(coordinate[index])
-
-                    // console.log(mapState[index].coordinates[0])
-                    console.log('FUNCTION RUN')
 
                     _map?.current?.animateToRegion(
                         {
@@ -153,7 +149,13 @@ const MapScreen = () => {
                         >
                             <Image
                                 source={{ uri: item.image }}
-                                style={[styles.markerImage, { borderColor: item.type === 'FOOD' ? 'orange' : 'pink' }]}
+                                style={[
+                                    styles.markerImage,
+                                    {
+                                        borderColor:
+                                            item.type === 'FOOD' ? 'orange' : item.type === 'DESERT' ? 'pink' : 'brown'
+                                    }
+                                ]}
                             />
                             <CalloutCardExplore data={item} />
                         </Marker>

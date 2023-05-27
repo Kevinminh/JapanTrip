@@ -6,13 +6,14 @@ import { theme } from '../../assets/Theme'
 
 type ButtonProps = {
     text: string
+    onPress: () => void
 }
 
 const Button = ({ ...props }: ButtonProps) => {
     const { colors } = useTheme()
 
     return (
-        <TouchableOpacity style={[styles.btn, { backgroundColor: colors.card }]}>
+        <TouchableOpacity style={[styles.btn, { backgroundColor: colors.card }]} onPress={props.onPress}>
             <Body>{props.text}</Body>
         </TouchableOpacity>
     )
