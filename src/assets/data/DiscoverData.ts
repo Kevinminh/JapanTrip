@@ -201,4 +201,22 @@ export const DiscoverData = [
       "https://res.cloudinary.com/dowiygzq3/image/upload/v1684253852/shibuya-scramble-square-tokyo-9_uarqw2.jpg",
     coordinates: [35.65863378614013, 139.70220845582054],
   },
+
+  {
+    location: "Wood Works Kawagoe",
+    city: "TOKYO",
+    address: "〒350-0063 Saitama, Kawagoe, Saiwaicho, １４−3",
+    image:
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1685202549/topimg_azjjqf.png",
+    galleryImages: [
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1685202549/topimg3_yd0vzr.png",
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1685202548/topimg2_xvgr7b.jpg",
+      "https://res.cloudinary.com/deiaf96eq/image/upload/v1685202548/P0001F63BB_ecttyp.jpg",
+    ],
+    openingHours:
+      "Monday: Closed, Tuesday-Friday: 12:30 - 18:00 & Saturday-Sunday: 10:30 - 18:00",
+    info: "We can make our own chopsticks",
+    link: "https://karakimokkou.com/",
+    coordinates: [35.9238725458645, 139.4835839927163],
+  },
 ];
