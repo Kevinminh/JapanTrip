@@ -65,7 +65,10 @@ const styles = StyleSheet.create({
     image: {
         width: '100%',
         height: 150,
-        borderRadius: theme.radius.default
+        // borderRadius: theme.radius.default,
+        borderTopLeftRadius: theme.radius.default,
+        borderTopRightRadius: theme.radius.default,
+        opacity: 0.7
     },
     title: {
         // position: 'absolute',
